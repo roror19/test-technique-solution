@@ -37,7 +37,7 @@ function tick(){
     if (min >= 1 && min <= 9 && sec === '00') {
         min = '0' + min
     }
-    if (hrs >= 1 && hrs <= 9 && sec === '00') {
+    if (hrs >= 1 && hrs <= 9 && min === '00' && sec === '00') {
         hrs = '0' + hrs
     }
 
