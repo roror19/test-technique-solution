@@ -3,11 +3,13 @@
     <head>
         <meta charset="UTF-8">
         <title>Test Technique Negocian{% block title %}{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&family=Poppins:wght@200;400&display=swap" rel="stylesheet">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}">
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -17,7 +19,16 @@
         {% endblock %}
     </head>
     <body>
-        {% block nav %}{{ include('includes/_navbar.html.twig') }}{% endblock %}
+        <div id="loader">
+            {{ include('includes/loader.html.twig') }}
+        </div>
+        {% block nav %}
+            {{ include('includes/_navbar.html.twig') }}
+        {% endblock %}
+        <div class="chrono-container">
+            <p>Chrono :</p>
+            <button id="chrono" data-controller="chrono"><i class="fa-solid fa-play"></i> <i class="fa-regular fa-clock"></i></button>
+        </div>
         {% block body %}{% endblock %}
     </body>
 </html>

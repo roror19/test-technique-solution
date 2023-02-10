@@ -7,32 +7,31 @@
         <div class="d-flex flex-wrap justify-content-center align-items-center">
             {% for product in products %}
                 <article class="card m-3">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="{{ app.request.getBaseURL }}/logo_noimg.png" class="img-fluid no-product" alt="{{ product.sku }}">
+                    <div class="card-corpse">
+                        <img src="{{ app.request.getBaseURL }}/logo_noimg.png" class="img-fluid no-product" alt="{{ product.sku }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.title }}</h5>
+                            <p class="card-text card-description">{{ product.description|raw }}</p>
+                            <p class="card-text card-price text-end fw-bold">{{ product.priceHT|number_format(2, '.', ',') }} € HT</p>
                         </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ product.title }}</h5>
-                                <p class="card-text card-description">{{ product.description|raw }}</p>
-                                <p class="card-text text-end fw-bold">{{ product.priceHT }} € HT</p>
+                    </div>
+                    <div class="footer-card">
+                        <p class="sku"><small>{{ product.sku }}</small></p>
+                        <div class="actions-buttons">
+                            <div class="button-groups">
+                                <button class="quantity" data-controller="quantity" data-type="minus">
+                                    <i class="fa-solid fa-minus"></i>
+                                </button>
+                                <label>
+                                    <input type="text" value="1" />
+                                </label>
+                                <button class="quantity" data-controller="quantity" data-type="add">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
                             </div>
+                            <button class="addToCart"><i class="fa-solid fa-cart-plus"></i></button>
                         </div>
                     </div>
-                    <p class="sku"><small>{{ product.sku }}</small></p>
-                    <div class="button-groups">
-                        <button class="quantity" data-controller="quantity" data-type="minus">
-                            <i class="fa-solid fa-minus"></i>
-                        </button>
-                        <label>
-                            <input type="text" value="1" />
-                        </label>
-                        <button class="quantity" data-controller="quantity" data-type="add">
-                            <i class="fa-solid fa-plus"></i>
-                        </button>
-                    </div>
-
-                    <button class="addToCart"><i class="fa-solid fa-cart-plus"></i></button>
                 </article>
             {% endfor %}
         </div>

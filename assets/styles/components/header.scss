@@ -1,9 +1,6 @@
 header {
-  border: solid $light-grey;
-  border-width: 0 0 1px;
   box-shadow: 0 0 10px 0 rgb(0 0 0 / 20%);
   transition: background .3s,border .3s,border-radius .3s,box-shadow .3s;
-  padding: 5px 0 5px 20px;
   z-index: 9;
   position: sticky;
   top: 0;
@@ -13,36 +10,40 @@ header {
     width: 100vw;
     background-color: $secondary-color;
     color: $white;
-    position: relative;
-    top: -5px;
-    left: -20px;
-    padding: 0 7em;
     height: 40px;
     display: flex;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
-
-    #chrono {
-      background-color: $primary-color;
-      border: none;
-      color: $white;
-      position: absolute;
-      top: 3px;
-      left: 45vw;
-      border-radius: 17px;
-      padding: 5px 20px;
-    }
+    padding: 0 15px;
 
     .left-block {
       display: flex;
       align-items: center;
-      font-size: 14px;
+      justify-content: flex-start;
+      font-size: 13px;
 
       p {
         padding: 10px 0;
+        font-size: 14px;
 
         &:nth-child(2) {
           margin-left: 2em;
+        }
+      }
+
+      a {
+        color: $white;
+
+        &:nth-child(2) {
+          margin-left: 1em;
+        }
+
+        &:nth-child(3) {
+          margin: 0 1em;
+        }
+
+        &:hover {
+          color: $primary-color;
         }
       }
     }
@@ -50,18 +51,10 @@ header {
     .right-block {
       display: flex;
       align-items: center;
-      font-size: 16px;
+      font-size: 14px;
 
-      a {
-        color: $white;
-
-        &:nth-child(2) {
-          margin: 0 1em;
-        }
-
-        &:hover {
-          color: $primary-color;
-        }
+      p {
+        font-size: 14px;
       }
     }
   }
@@ -71,16 +64,19 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 70px;
 
     .logo-container {
 
       width: 20vw;
+      height: 100%;
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
 
       img {
         width: 10em;
+        height: 50px;
       }
     }
 
@@ -89,7 +85,7 @@ header {
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      margin-right: 2vw;
+      height: 100%;
 
       a {
         padding: 1em 2em;
@@ -101,6 +97,11 @@ header {
     }
 
     .cart-container {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $primary-color;
 
       .cart {
 
@@ -109,26 +110,26 @@ header {
         span {
           position: absolute;
           background-color: #FFF;
-          bottom: -10px;
-          right: 0px;
-          border-radius: 25px;
+          bottom: -13px;
+          right: 3px;
+          border-radius: 5px;
           line-height: 1.4;
-          padding: 0 13px;
+          font-size: 13px;
           cursor: pointer;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 27px;
+          height: 16px;
         }
 
         a {
           padding: 1em 2em;
-          background-color: $secondary-color;
-          border-top-left-radius: 25px;
-          border-bottom-left-radius: 25px;
+          background-color: $primary-color;
 
           i, svg {
             color: $white;
-          }
-
-          &:hover {
-            background-color: $primary-color;
+            font-size: 22px;
           }
         }
       }

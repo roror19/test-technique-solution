@@ -11,6 +11,10 @@ body {
   color: $secondary-color;
 }
 
+button {
+  border: none;
+}
+
 a, h1, h2, h3, h4, h5, h6 {
   font-family: $title;
 }
@@ -29,6 +33,15 @@ h2, h3, h4, h5, h6 {
   font-weight: 200;
 }
 
+h2 {
+  font-weight: 700;
+}
+
+h3 {
+  font-weight: 400;
+  margin-top: 40px;
+}
+
 pre {
   margin-top: 1rem;
   padding-top: 1rem;
@@ -38,6 +51,8 @@ pre {
 
 p {
   text-align: justify;
+  display: block;
+  margin: 0;
 }
 
 // SCROLLBAR
@@ -51,21 +66,58 @@ p {
 
 ::-webkit-scrollbar-thumb {
   background: $secondary-color;
-  border-radius: 7px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: $primary-color;
 }
 
+// CHRONO
+.chrono-container {
+  position: fixed;
+  right: 2%;
+  bottom: 2%;
+
+  p {
+    text-align: center;
+    color: $primary-color;
+  }
+
+  #chrono {
+    background-color: $primary-color;
+    border: none;
+    color: #FFF;
+    border-radius: 5px;
+    padding: 5px 20px;
+    width: 90px;
+    height: 45px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 16px;
+  }
+}
+
+// GENERAL
 .quantity {
   border: none;
-  background-color: $secondary-color;
-  color: $white;
-  border-radius: 50%;
+  color: $secondary-color;
+  height: 40px;
+  width: 40px;background-color: transparent;
+  box-shadow: 0 0 10px 0 rgb(0 0 0 / 20%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
 
-  &:hover {
-    background-color: $primary-color;
+  i, svg {
+    font-size: 12px;
+  }
+}
+
+.homepage {
+  .quantity {
+    display: initial;
   }
 }
 
@@ -79,9 +131,28 @@ p {
 
   &:hover {
     background-color: $primary-color;
+    color: $white;
   }
 }
 
 .red {
   color: $primary-color;
+}
+
+// TURBO
+body > #loader {
+  display: none;
+}
+
+body.turbo-loading > #loader, body.turbo-loaded > #loader {
+  height: 100vh;
+  width: 100vw;
+  background-color: #FFFFFF90;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

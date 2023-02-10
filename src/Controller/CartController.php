@@ -28,10 +28,6 @@ class CartController extends AbstractController
         /**
          * Récupérer les produits en session
          */
-        $product = $this->entityManager->getRepository(Product::class)->findOneBy([]);
-
-        $cart->addProduct($product);
-        $cart->addProduct($product, 3);
 
         $event = new CartEvent($cart, $this->cartServices);
 

@@ -1,17 +1,39 @@
 .cart-page {
 
-  input {
-    width: 26px;
-    height: 26px;
-    position: relative;
-    bottom: -1px;
-    text-align: center;
-    border-radius: 50%;
+  .quantity-table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    input {
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      border-top: 1px solid rgb(0 0 0 / 5%);
+      border-left: none;
+      border-right: none;
+      border-bottom: 1px solid rgb(0 0 0 / 5%);
+
+      &:focus-visible {
+        outline: none;
+      }
+    }
   }
 
-  tfoot {
-    td {
-      color: $primary-color;
+  table {
+    th, td {
+      text-align: center;
+      vertical-align: middle;
+
+      &:nth-child(8) {
+        text-align: end;
+      }
+    }
+
+    tfoot {
+      td {
+        color: $primary-color;
+      }
     }
   }
 }
