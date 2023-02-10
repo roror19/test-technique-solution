@@ -10,11 +10,13 @@ export default class extends Controller {
 
         checkFile(this.element);
 
-        $(this.element).on('click', function () {
+        if ($(this.element).is('button')) {
+            $(this.element).on('click', function () {
 
-            $(this).replaceWith('<p id="chrono" data-controller="chrono"><span id="hrs">' + hrs + '</span> : <span id="min">' + min + '</span> : <span id="sec">' + sec +'</span></p>')
-            timer();
-        })
+                $(this).replaceWith('<p id="chrono" data-controller="chrono"><span id="hrs">' + hrs + '</span> : <span id="min">' + min + '</span> : <span id="sec">' + sec +'</span></p>')
+                timer();
+            })
+        }
     }
 }
 
