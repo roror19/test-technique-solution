@@ -10,6 +10,7 @@ Lancer les commandes dans l'ordre suivant :
 - npm i
 - php bin/console doctrine:migrations:migrate
 - php bin/console doctrine:fixtures:load
+- php -S localhost:8000 -t public/
 
 ## Réussir le test :
 
