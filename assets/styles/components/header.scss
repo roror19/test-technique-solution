@@ -1,0 +1,160 @@
+header {
+  border: solid $light-grey;
+  border-width: 0 0 1px;
+  box-shadow: 0 0 10px 0 rgb(0 0 0 / 20%);
+  transition: background .3s,border .3s,border-radius .3s,box-shadow .3s;
+  padding: 5px 0 5px 20px;
+  z-index: 9;
+  position: sticky;
+  top: 0;
+  background-color: $white;
+
+  .pre-nav {
+    width: 100vw;
+    background-color: $secondary-color;
+    color: $white;
+    position: relative;
+    top: -5px;
+    left: -20px;
+    padding: 0 7em;
+    height: 40px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+
+    #chrono {
+      background-color: $primary-color;
+      border: none;
+      color: $white;
+      position: absolute;
+      top: 3px;
+      left: 45vw;
+      border-radius: 17px;
+      padding: 5px 20px;
+    }
+
+    .left-block {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+
+      p {
+        padding: 10px 0;
+
+        &:nth-child(2) {
+          margin-left: 2em;
+        }
+      }
+    }
+
+    .right-block {
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+
+      a {
+        color: $white;
+
+        &:nth-child(2) {
+          margin: 0 1em;
+        }
+
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+
+  nav {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .logo-container {
+
+      width: 20vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 10em;
+      }
+    }
+
+    .text-container {
+      width: calc(80vw - 40px);
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-right: 2vw;
+
+      a {
+        padding: 1em 2em;
+
+        &:nth-child(1) {
+          border-right: 1px solid $light-grey;
+        }
+      }
+    }
+
+    .cart-container {
+
+      .cart {
+
+        position: relative;
+
+        span {
+          position: absolute;
+          background-color: #FFF;
+          bottom: -10px;
+          right: 0px;
+          border-radius: 25px;
+          line-height: 1.4;
+          padding: 0 13px;
+          cursor: pointer;
+        }
+
+        a {
+          padding: 1em 2em;
+          background-color: $secondary-color;
+          border-top-left-radius: 25px;
+          border-bottom-left-radius: 25px;
+
+          i, svg {
+            color: $white;
+          }
+
+          &:hover {
+            background-color: $primary-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 730px) {
+  header {
+    .pre-nav {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  header {
+    nav {
+      justify-content: space-between;
+
+      .logo-container {
+        width: 50vw;
+      }
+      .text-container {
+        display: none;
+      }
+    }
+  }
+}

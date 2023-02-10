@@ -1,0 +1,87 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $white;
+  overflow-x: hidden;
+  min-height: 100vh;
+  min-width: 100vw;
+  font-family: $text;
+  color: $secondary-color;
+}
+
+a, h1, h2, h3, h4, h5, h6 {
+  font-family: $title;
+}
+
+a {
+  text-decoration: none;
+  color: $secondary-color;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+h2, h3, h4, h5, h6 {
+  color: $primary-color;
+  font-weight: 200;
+}
+
+pre {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  background-color: $secondary-color;
+  color: $white;
+}
+
+p {
+  text-align: justify;
+}
+
+// SCROLLBAR
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: $white;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $secondary-color;
+  border-radius: 7px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $primary-color;
+}
+
+.quantity {
+  border: none;
+  background-color: $secondary-color;
+  color: $white;
+  border-radius: 50%;
+
+  &:hover {
+    background-color: $primary-color;
+  }
+}
+
+.button {
+  min-width: 110px;
+  background-color: $secondary-color;
+  color: $white;
+  border-radius: 17px;
+  padding: 5px 20px;
+  text-align: center;
+
+  &:hover {
+    background-color: $primary-color;
+  }
+}
+
+.red {
+  color: $primary-color;
+}

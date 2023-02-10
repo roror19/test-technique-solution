@@ -1,0 +1,39 @@
+<header>
+    <div class="pre-nav">
+        <div class="left-block">
+            <p><i class="fa-regular fa-paper-plane"></i> hello@negocian.fr</p>
+            <p><i class="fa-regular fa-clock"></i> Lun - Ven : 9:30-13:00 / 14:00-17:30</p>
+        </div>
+        <div>
+            <button id="chrono" data-controller="chrono">Lancer le chronomètre</button>
+        </div>
+        <div class="right-block">
+            <a href="https://www.linkedin.com/company/cloudnegocian/mycompany/">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="https://www.facebook.com/negocian.cloud/">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="https://twitter.com/Negocian_Cloud">
+                <i class="fa-brands fa-twitter"></i>
+            </a>
+        </div>
+    </div>
+    <nav>
+        <div class="logo-container">
+            <a href="{{ path('app_homepage') }}">
+                <img src="{{ app.request.getBaseURL }}/logo-negocian.svg" alt="logo-negocian" title="Negocian.Cloud">
+            </a>
+        </div>
+        <div class="text-container">
+            <a href="{{ path('app_homepage') }}">Consignes</a>
+            <a href="{{ path('product_index') }}">Liste des produits</a>
+        </div>
+        <div class="cart-container">
+            <div class="cart">
+                <a href="{{ path('cart_index') }}"><i class="fa-brands fa-opencart"></i></a>
+                <span id="counter">0</span>
+            </div>
+        </div>
+    </nav>
+</header>

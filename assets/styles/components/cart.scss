@@ -1,0 +1,17 @@
+.cart-page {
+
+  input {
+    width: 26px;
+    height: 26px;
+    position: relative;
+    bottom: -1px;
+    text-align: center;
+    border-radius: 50%;
+  }
+
+  tfoot {
+    td {
+      color: $primary-color;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+@import "~bootstrap/scss/bootstrap";
+
+@import "variables";
+@import 'base.scss';
+
+@import "components/header";
+@import "components/banner";
+@import "components/products";
+@import "components/cart";

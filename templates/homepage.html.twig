@@ -1,0 +1,114 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="banner">
+        <h1 class="text-center">Bienvenue sur le test technique Negocian.cloud</h1>
+        <img src="{{ app.request.getBaseURL }}/carousel.png" alt="computer">
+    </div>
+    <div class="container my-5">
+        <h2>Consignes</h2>
+        <p>
+            Pour ce test, vous disposez de la journée pour aller le plus loin possible.
+            <br>
+            Suivez les instructions les une après les autres pour aller à l'étape suivante.
+        </p>
+
+        <h3>Exercice 1 :</h3>
+        <p>
+            Dans le ProductController, nous avons une requête qui est la suivante :
+        </p>
+        <pre>
+            $products = $this->entityManager->getRepository(Product::class)
+                ->findAll();
+        </pre>
+        <p>
+            Remplacer le findAll par une requête repository permettant la récupération des produits actifs qui ont
+            un prix supérieur à 0 ainsi que leur TVA.
+        </p>
+
+        <h3>Exercice 2 :</h3>
+        <p>
+            Sur la page comportant la liste des produits, faire en sorte que lorsque l'on clique sur l'ajout au panier,
+            <span class="fst-italic">(sans prendre en compte les quantités pour le moment)</span> cela ajoute bien le produit au panier.
+            <br>
+            Le panier est un DTO <span class="fst-italic">( un objet de transfert de données )</span>. Le but de stocker une liste de produits en session
+            et nous l'utiliserons ensuite dans un autre exercice.
+        </p>
+
+        <h3>Exercice 3 : <span class="fst-italic">( BONUS )</span></h3>
+        <p>
+            Faire en sorte que lorsque l'on clique sur l'ajout au panier, cela ajoute bien le produit au panier en fonction de la quantité
+            renseignée dans l'input.
+            <br>
+            Faire également en sorte que l'indicateur au niveau du panier corresponde bien au nombre d'articles inclus dans celui-ci.
+        </p>
+
+        <h3>Exercice 4 :</h3>
+        <p>
+            En allant dans le panier <span class="fst-italic">( icône tout à droite de la barre de navigation )</span>, vous allez devoir
+            récupérer votre liste de produits stockés en session et former votre DTO.
+            <br>
+            La méthode d'ajout au DTO est déjà existante dans celui-ci.
+        </p>
+
+        <h3>Exercice 5 :</h3>
+        <p>
+            Dans le controller gérant la gestion du panier. Un Event a été placé pour permettre différents calculs.
+            <br>
+            Comprendre et utiliser l'Event pour calculer le prix unitaire TTC du produit puis, son prix total ainsi que le prix total TTC du panier.
+            <br>
+            Ces informations doivent ensuite être ajoutées au DTO, afin de les insérer au template.
+        </p>
+
+        <h3>Exercice 6 :</h3>
+        <p>
+            Dans le panier. Les boutons
+            <button class="quantity">
+                <i class="fa-solid fa-minus"></i>
+            </button> et
+            <button class="quantity">
+                <i class="fa-solid fa-plus"></i>
+            </button>
+            des quantités ne fonctionnent pas.
+            <br>
+            Faire en sorte de pouvoir modifier les quantités dans le panier.
+            <br>
+            Une fois la quantité à 0, le produit doit être supprimé.
+            <br>
+            Bien entendu, les prix du panier vont varier en fonction de la quantité sur la ligne et sur le total.
+        </p>
+
+        <h3>Exercice 7 :</h3>
+        <p>
+            En cliquant sur la corbeille au bout de la ligne du produit, cela doit pouvoir supprimer le produit du panier.
+        </p>
+
+        <h3>Exercice 8 : <span class="fst-italic">( BONUS )</span></h3>
+        <p>
+            En cliquant sur le bouton <button class="button"><i class="fa-solid fa-ban"></i> Vider mon panier</button>, situé dans le panier, cela doit vider le panier de l'utilisateur en cours.
+        </p>
+
+        <h3>Exercice 9 : <span class="fst-italic">( BONUS )</span></h3>
+        <p>
+            Il faut réaliser les tests de nos services. Pour lancer les tests, utiliser la commande :
+        </p>
+        <pre>
+            php bin/phpunit
+        </pre>
+        <p>
+            Si une erreur s'affiche avec une erreur SQL, peut-être que votre .env.test n'est pas à jour.
+        </p>
+        <p>
+            L'un des tests a été réalisé, il vous en reste deux à compléter.
+        </p>
+
+        <h3>Exercice 10 :</h3>
+        <p>
+            Un problème d'intégration s'est placé dans le header.
+            <br>
+            On ne peut accéder au panier en cliquant sur le compteur d'articles.
+            <br>
+            Faire en sorte que l'on puisse atteindre le panier en cliquant sur toute la partie.
+        </p>
+    </div>
+{% endblock %}
