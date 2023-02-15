@@ -106,11 +106,14 @@ header {
       .cart {
 
         position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
         span {
           position: absolute;
           background-color: #FFF;
-          bottom: -13px;
+          bottom: 0;
           right: 3px;
           border-radius: 5px;
           line-height: 1.4;

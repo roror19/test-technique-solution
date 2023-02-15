@@ -19,28 +19,28 @@
             <td>{{ product.product.title[:30] ~ '...' }}</td>
             <td>{{ product.product.sku }}</td>
             <td class="quantity-table">
-                <button class="quantity">
+                <button class="quantity" data-controller="quantityTable" data-type="minus" data-id="{{ product.product.id }}" data-link="{{ path('product_reload') }}">
                     <i class="fa-solid fa-minus"></i>
                 </button>
                 <label>
                     <input type="text" value="{{ product.quantity }}" />
                 </label>
-                <button class="quantity">
+                <button class="quantity" data-controller="quantityTable" data-type="add" data-id="{{ product.product.id }}" data-link="{{ path('product_reload') }}">
                     <i class="fa-solid fa-plus"></i>
                 </button>
             </td>
             <td>{{ product.product.priceHT }} €</td>
             <td>{{ product.product.vat.amount }} %</td>
-            <td> --,-- €</td>
-            <td> --,-- €</td>
-            <td class="text-center"><a href="#"><i class="fa-regular fa-trash-can"></i></a></td>
+            <td>{{ app.session.get('product_' ~ product.product.id)['ttc'] }} €</td>
+            <td>{{ app.session.get('product_' ~ product.product.id)['totalTTC']}} €</td>
+            <td class="text-center"><a href="{{ path('product_remove', {'id' : product.product.id} ) }}"><i class="fa-regular fa-trash-can"></i></a></td>
         </tr>
     {% endfor %}
     </tbody>
     <tfoot>
         <tr>
             <td colspan="7" class="text-end fw-bold mr-5">TOTAL :</td>
-            <td class="text-end">--,-- €</td>
+            <td class="text-end">{{ app.session.get('total') }} €</td>
             <td></td>
         </tr>
     </tfoot>

@@ -9,6 +9,8 @@ use App\Interfaces\CartServicesInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -21,13 +23,12 @@ class CartController extends AbstractController
     ) { }
 
     #[Route(path: '', name: 'index')]
-    public function index(): Response
+    public function index(Request $request): Response
     {
-        $cart = new Cart();
-
         /**
          * Récupérer les produits en session
          */
+        $cart = $this->cartServices->getProducts($request->getSession());
 
         $event = new CartEvent($cart, $this->cartServices);
 
@@ -36,5 +37,15 @@ class CartController extends AbstractController
         return $this->render('products/cart.html.twig', [
             'cart' => $cart,
         ]);
+    }
+
+    #[Route(path: '/clean', name: 'clean')]
+    public function clean(Request $request): RedirectResponse
+    {
+        $session = $request->getSession();
+
+        $session->clear();
+
+        return $this->redirectToRoute('cart_index');
     }
 }

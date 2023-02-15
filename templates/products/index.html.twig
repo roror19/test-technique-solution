@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <div id="success-add" class="d-none bg-info text-white p-3">
+        <p>Produit ajouté avec succès</p>
+    </div>
     <div class="container product-page mt-5">
         <h2>Liste des produits</h2>
 
@@ -29,7 +32,7 @@
                                     <i class="fa-solid fa-plus"></i>
                                 </button>
                             </div>
-                            <button class="addToCart"><i class="fa-solid fa-cart-plus"></i></button>
+                            <button class="addToCart" data-controller="addCart" data-id="{{ product.id }}" data-link="{{ path('product_add') }}"><i class="fa-solid fa-cart-plus"></i></button>
                         </div>
                     </div>
                 </article>

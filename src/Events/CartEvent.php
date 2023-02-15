@@ -21,4 +21,9 @@ final class CartEvent extends Event
 
         $this->cartServices->calculateFinalTotal($this->cart);
     }
+
+    public function getCart(): Cart
+    {
+        return $this->cart;
+    }
 }

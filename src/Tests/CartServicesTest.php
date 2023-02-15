@@ -4,6 +4,7 @@ namespace App\Tests;
 
 use App\DataFixtures\ProductFixtures;
 use App\DataFixtures\VatFixtures;
+use App\DTO\Cart;
 use App\Entity\Product;
 use App\Services\CartServices;
 use Doctrine\ORM\EntityManagerInterface;
@@ -52,21 +53,63 @@ class CartServicesTest extends KernelTestCase
         $methodeResult = $cartServices->calculateTTC($product);
 
         $this->assertEquals(
-            134.67,
+            134.68,
             $methodeResult,
-            'Le résultat attendu de la valeur TTC doit être 134.76, avez-vous fait attention aux décimales ?'
+            'Le résultat attendu de la valeur TTC doit être 134.68, avez-vous fait attention aux décimales ?'
         );
     }
 
     #[NoReturn]
     public function testCalculateTotal(): void
     {
-        // TODO: Implement testCalculateTotal() method.
+        self::bootKernel();
+
+        $container = static::getContainer();
+
+        $this->databaseTool->loadFixtures([
+            VatFixtures::class,
+            ProductFixtures::class
+        ]);
+
+        $product = $this->entityManager->getRepository(Product::class)
+            ->findOneBy([]);
+
+        $cartServices  = $container->get(CartServices::class);
+        $methodeResult = $cartServices->calculateTotal($product, 2);
+
+        $this->assertEquals(
+            269.36,
+            $methodeResult,
+            'Le résultat attendu de la valeur TTC doit être 269.36, avez-vous fait attention aux décimales ?'
+        );
     }
 
     #[NoReturn]
     public function testCalculateFinalTotal(): void
     {
-        // TODO: Implement testCalculateFinalTotal() method.
+        self::bootKernel();
+
+        $container = static::getContainer();
+
+        $this->databaseTool->loadFixtures([
+            VatFixtures::class,
+            ProductFixtures::class
+        ]);
+
+        $product = $this->entityManager->getRepository(Product::class)
+            ->findOneBy([]);
+
+        $cart = new Cart();
+
+        $cart->addProduct($product, 2);
+
+        $cartServices  = $container->get(CartServices::class);
+        $methodeResult = $cartServices->calculateFinalTotal($cart);
+
+        $this->assertEquals(
+            269.35,
+            $methodeResult,
+            'Le résultat attendu de la valeur TTC doit être 269.35, avez-vous fait attention aux décimales ?'
+        );
     }
 }
